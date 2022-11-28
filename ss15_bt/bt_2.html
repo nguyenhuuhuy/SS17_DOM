@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+        #the-final-countdown {
+            background: #333;
+            font-family: "Lato", sans-serif;
+            text-align: center;
+            color: #eee;
+            text-shadow: 1px 1px 5px black;
+            padding: 1rem 0;
+            font-size: 3rem;
+            border: 1px solid #000;
+        }
+
+        #ga {
+            text-align: center;
+            color: black;
+            font-size: larger;
+        }
+
+        #chicken:hover {
+            background-color: aquamarine;
+        }
+
+        #chicken {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="the-final-countdown">
+        <p id="clock"></p>
+    </div>
+    <div id="ga">
+        <p>Wait 10 seconds for the susprised things:</p>
+        <p id="chicken"></p>
+        <p id="count"></p>
+    </div>
+
+    <script>
+        setInterval(function time() {
+            var date = new Date();
+            var hours = 24 - date.getHours();
+            var min = 60 - date.getMinutes();
+            var sec = 60 - date.getSeconds();
+            if (min <= 0) {
+                hours -= 1;
+                min = 59;
+            }
+            if (sec == -1) {
+                min -= 1;
+                sec = 59;
+            }
+            document.getElementById("clock").innerHTML =
+                hours + ":" + min + ":" + sec;
+        });
+        setTimeout(myChicken, 10000);
+        function myChicken() {
+            document.getElementById("chicken").innerHTML =
+                '<img src="/audio/anh-dong-ga-di-cho-cute-711x600.gif" alt="" id="chicken" width="150" height="150">';
+        }
+        let count = 0;
+        // let chicken = document.getElementById('chicken');
+        chicken.addEventListener('click', function () {
+            count += 10;
+            document.getElementById('count').innerHTML = count;
+        })
+    </script>
+</body>
+
+</html>

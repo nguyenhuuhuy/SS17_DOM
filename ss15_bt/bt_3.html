@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="hour-countdown"></div>
+    <div id="minute-countdown"></div>
+    <div id="second-countdown"></div>
+    <div id="ck"></div>
+    <script>
+      var hour = document.getElementById("hour");
+      var minute = document.getElementById("minute");
+      var second = document.getElementById("second");
+      var myInterval = "";
+      //   var hourCountdown = 0;
+      //   var minuteCountdown = 0;
+      //   var secondCountdown = 0;
+
+      //HÀM CHẠY IN RA KẾT QUẢ ĐẾM NGƯỢC THEO GIÂY.
+      function run() {
+        let today = new Date();
+        let hourCountdown = today.getHours();
+        let minuteCountdown = today.getMinutes();
+        let secondCountdown = today.getSeconds();
+
+        //dùng phương thức setInterval để đếm ngược
+        //CÁCH-1:
+        // myInterval = setInterval(run, 1000);
+
+        //CÁCH-2:
+        myInterval = setInterval(function () {
+          secondCountdown--;
+          if (secondCountdown <= 0) {
+            console.log(secondCountdown);
+            minuteCountdown -= 1;
+            secondCountdown = 59;
+          }
+          if (minuteCountdown == -1) {
+            hourCountdown -= 1;
+            minuteCountdown = 59;
+          }
+
+          document.getElementById("hour-countdown").innerHTML = hourCountdown;
+          document.getElementById("minute-countdown").innerHTML =
+            minuteCountdown;
+          document.getElementById("second-countdown").innerHTML =
+            secondCountdown;
+        }, 1000);
+      }
+      function addchicken() {
+        let chiken = document.createElement("img");
+        chiken.img.src = "/audio/anh-dong-ga-di-cho-cute-711x600.gif";
+      }
+      addchicken();
+      run();
+    </script>
+  </body>
+</html>
